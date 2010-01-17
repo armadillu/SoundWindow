@@ -96,7 +96,8 @@ void testApp::audioRequested 	(float * output, int bufferSize, int nChannels){
 //		sample = ((int)(sample * q) %q ) / (float)q;
 
 		
-		//i'm on master branch
+
+		//i'm on master branch and i merged with the monkey branch
 		
 		
 
