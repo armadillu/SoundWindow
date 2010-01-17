@@ -62,7 +62,7 @@ void testApp::draw(){
 
 	ofSetColor(0x333333);
 	char reportString[255];
-	sprintf(reportString, "freq: %f  phase: %f  window: %s\n[+ / -] to choose window", freq, phase, soundWin.windowName());
+	sprintf(reportString, "freq: %f  phase: %f  window: %s\n[+ / -] to choose window\nmaster branch", freq, phase, soundWin.windowName());
 
 	ofDrawBitmapString(reportString,80,380);
 
