@@ -78,7 +78,7 @@ void testApp::audioRequested 	(float * output, int bufferSize, int nChannels){
 		
 		float sample;
 		
-		sample =  sin (  loopPercent * freq * 0.1 + phase * time * 0.1);
+//		sample =  sin (  loopPercent * freq * 0.1 + phase * time * 0.1);
 		
 //		int steps = 1 + phase * 0.05;
 //		sample = -1 + ((int)(freq*loopPercent)%(steps) ) / (steps*0.5f);
