@@ -107,6 +107,12 @@ float SoundWindow::blackmanHarrisAtPoint(int point, int numSamples){
 }
 
 
+float SoundWindow::randomAtPoint(int point, int numSamples){
+	return rand()%1000 / 1000.0f;
+}
+
+
+
 
 float* SoundWindow::getWindow(){
 

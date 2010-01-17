@@ -23,7 +23,8 @@ class SoundWindow{
 			SOUND_WINDOW_TRIANGULAR,
 			SOUND_WINDOW_GAUSS,
 			SOUND_WINDOW_BLACKMAN_HARRIS,
-			SOUND_WINDOW_FLAT
+			SOUND_WINDOW_FLAT,
+			SOUND_WINDOW_RANDOM
 	
 		}SoundWindowType; 
 
@@ -42,6 +43,7 @@ class SoundWindow{
 		float	triangularAtPoint(int point, int numSamples);
 		float	gaussAtPoint(int point, int numSamples);
 		float	blackmanHarrisAtPoint(int point, int numSamples);
+		float	randomAtPoint(int point, int numSamples);
 	
 		bool	inited;
 		int		numSamples;
