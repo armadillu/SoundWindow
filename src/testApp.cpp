@@ -84,7 +84,7 @@ void testApp::audioRequested 	(float * output, int bufferSize, int nChannels){
 //		sample = -1 + ((int)(freq*loopPercent)%(steps) ) / (steps*0.5f);
 		
 		sample = sin ( loopPercent * 0.2 * freq * (1 + 0.3 * sin ( ( mouseX / (float)ofGetWidth()) * 15 * time ) ) );
-
+		
 		
 		//monkey too loud!
 		//sample = phase  * 0.1* cos ( loopPercent * freq );
@@ -96,6 +96,7 @@ void testApp::audioRequested 	(float * output, int bufferSize, int nChannels){
 //		sample = ((int)(sample * q) %q ) / (float)q;
 
 		
+		//i'm on master branch
 		
 		
 
