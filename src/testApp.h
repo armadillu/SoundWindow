@@ -17,7 +17,7 @@ class testApp : public ofBaseApp{
 		void mouseMoved(int x, int y );
 		void keyPressed( int key );
 
-		void audioRequested 	(float * input, int bufferSize, int nChannels);
+		void audioRequested (float * input, int bufferSize, int nChannels);
 
 		int		sampleRate;
 		float 	volume;
