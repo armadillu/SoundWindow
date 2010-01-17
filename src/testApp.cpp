@@ -123,7 +123,7 @@ void testApp::keyPressed( int key ){
 			break;
 	}
 	
-	SoundWindow::SoundWindowType type = (SoundWindow::SoundWindowType)((SoundWindow::SOUND_WINDOW_HANNING) + (num%6));
+	SoundWindow::SoundWindowType type = (SoundWindow::SoundWindowType)((SoundWindow::SOUND_WINDOW_HANNING) + (num%7));
 	soundWin.create(NUM_SAMPLES, type);
 
 }

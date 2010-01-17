@@ -65,7 +65,12 @@ void SoundWindow::create(int length, SoundWindowType windowType){
 			for (int i=0; i< length; i++)
 				soundWindow[i] = 1.0f;
 			break;
-			
+
+		case SOUND_WINDOW_RANDOM:
+			for (int i=0; i< length; i++)
+				soundWindow[i] = randomAtPoint(i, length);
+			break;
+
 		default:
 			for (int i=0; i< length; i++)
 				soundWindow[i] = 1.0f;
@@ -142,6 +147,7 @@ char* SoundWindow::windowName(){
 			case SOUND_WINDOW_GAUSS: return "Gauss";
 			case SOUND_WINDOW_BLACKMAN_HARRIS: return "Blackman Harris";
 			case SOUND_WINDOW_FLAT: return "Flat";
+			case SOUND_WINDOW_RANDOM: return "Random";
 			default: return "Unknown SoundWindow Type";
 		}
 	}else
