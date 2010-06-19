@@ -12,21 +12,23 @@
 
 SoundWindow::SoundWindow(){
 
-	inited = false;
+	soundWindow = NULL;
 	numSamples = 0;
 }
 
 
 SoundWindow::~SoundWindow(){
 
-	if (inited)
+	if (soundWindow != NULL)
 		delete[]soundWindow;
+	
+	numSamples = 0;
 }
 
 
 void SoundWindow::create(int length, SoundWindowType windowType){
 
-	if (inited){
+	if (soundWindow != NULL){
 		delete[]soundWindow;		  
 	}
 
@@ -78,17 +80,16 @@ void SoundWindow::create(int length, SoundWindowType windowType){
 			break;
 	}
 		
-	inited = true;
 }
 
 
 float SoundWindow::hanningAtPoint(int point, int numSamples){
-	return 0.5f * ( 1.0f - cos ( (2.0f * M_PI * point) / ( (float)numSamples - 1.0f) ) );
+	return 0.5f * ( 1.0f - cosf ( (2.0f * M_PI * point) / ( (float)numSamples - 1.0f) ) );
 }
 
 
 float SoundWindow::hammingAtPoint(int point, int numSamples){
-	return 0.54f - 0.46f * cos ( (2.0f * M_PI * point) / ( (float)numSamples - 1.0f) ) ;
+	return 0.54f - 0.46f * cosf ( (2.0f * M_PI * point) / ( (float)numSamples - 1.0f) ) ;
 }
 
 
@@ -106,9 +107,9 @@ float SoundWindow::gaussAtPoint(int point, int numSamples){
 
 float SoundWindow::blackmanHarrisAtPoint(int point, int numSamples){
 	
-	return 0.35875f		- 0.48829f * cos( 2.0f * M_PI * point / (numSamples-1) ) 
-						+ 0.14128f * cos( 4.0f * M_PI * point / (numSamples-1) ) 
-						- 0.01168f * cos( 6.0f * M_PI * point / (numSamples-1) );
+	return 0.35875f		- 0.48829f * cosf( 2.0f * M_PI * point / (numSamples-1) ) 
+						+ 0.14128f * cosf( 4.0f * M_PI * point / (numSamples-1) ) 
+						- 0.01168f * cosf( 6.0f * M_PI * point / (numSamples-1) );
 }
 
 
@@ -120,27 +121,20 @@ float SoundWindow::randomAtPoint(int point, int numSamples){
 
 
 float* SoundWindow::getWindow(){
-
-	if (inited)
-		return soundWindow;
-	else
-		return NULL;
+	return soundWindow;
 }
 
 
 int SoundWindow::getWindowLength(){
-
-	if (inited)
-		return numSamples;
-	else
-		return -1;
+	return numSamples;
 }
+
 
 char* SoundWindow::windowName(){
 
-	if (inited){
-		switch (type) {
+	if ( soundWindow != NULL ){
 
+		switch (type) {
 			case SOUND_WINDOW_HANNING: return "Hanning";
 			case SOUND_WINDOW_HAMMING: return "Hamming";
 			case SOUND_WINDOW_TRIANGULAR: return "Triangular";
@@ -150,6 +144,7 @@ char* SoundWindow::windowName(){
 			case SOUND_WINDOW_RANDOM: return "Random";
 			default: return "Unknown SoundWindow Type";
 		}
+		
 	}else
 		return "Not Inited!";
 }

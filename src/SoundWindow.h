@@ -45,7 +45,6 @@ class SoundWindow{
 		float	blackmanHarrisAtPoint(int point, int numSamples);
 		float	randomAtPoint(int point, int numSamples);
 	
-		bool	inited;
 		int		numSamples;
 		float*	soundWindow;
 		SoundWindowType type;
