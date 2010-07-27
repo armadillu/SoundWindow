@@ -73,6 +73,14 @@ void SoundWindow::create(int length, SoundWindowType windowType){
 				soundWindow[i] = randomAtPoint(i, length);
 			break;
 
+		case SOUND_WINDOW_ALMOST_FLAT:
+			for (int i=0; i< length; i++){
+				soundWindow[i] =  powf( 2 * hanningAtPoint(i, length), 0.3 );
+				soundWindow[i] = powf( soundWindow[i] , 1.5); 
+				if ( soundWindow[i] > 1.0f ) soundWindow[i] = 1.0f;
+			}
+			break;
+			;
 		default:
 			for (int i=0; i< length; i++)
 				soundWindow[i] = 1.0f;
@@ -83,7 +91,7 @@ void SoundWindow::create(int length, SoundWindowType windowType){
 }
 
 
-float SoundWindow::hanningAtPoint(int point, int numSamples){
+float SoundWindow::hanningAtPoint(float point, int numSamples){
 	return 0.5f * ( 1.0f - cosf ( (2.0f * M_PI * point) / ( (float)numSamples - 1.0f) ) );
 }
 
@@ -141,6 +149,7 @@ char* SoundWindow::windowName(){
 			case SOUND_WINDOW_GAUSS: return "Gauss";
 			case SOUND_WINDOW_BLACKMAN_HARRIS: return "Blackman Harris";
 			case SOUND_WINDOW_FLAT: return "Flat";
+			case SOUND_WINDOW_ALMOST_FLAT: return "Amost Flat";
 			case SOUND_WINDOW_RANDOM: return "Random";
 			default: return "Unknown SoundWindow Type";
 		}

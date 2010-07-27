@@ -24,7 +24,8 @@ class SoundWindow{
 			SOUND_WINDOW_GAUSS,
 			SOUND_WINDOW_BLACKMAN_HARRIS,
 			SOUND_WINDOW_FLAT,
-			SOUND_WINDOW_RANDOM
+			SOUND_WINDOW_RANDOM,
+			SOUND_WINDOW_ALMOST_FLAT
 	
 		}SoundWindowType; 
 
@@ -38,7 +39,7 @@ class SoundWindow{
 
 	private:
 	
-		float	hanningAtPoint(int point, int numSamples);
+		float	hanningAtPoint(float point, int numSamples);
 		float	hammingAtPoint(int point, int numSamples);
 		float	triangularAtPoint(int point, int numSamples);
 		float	gaussAtPoint(int point, int numSamples);
