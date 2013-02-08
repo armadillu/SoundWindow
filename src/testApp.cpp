@@ -14,7 +14,7 @@ void testApp::setup(){
 	// 256 samples per buffer
 	// 4 num buffers (latency)
 
-	sampleRate 			= 44100;
+	sampleRate 			= 22050;
 	phase 				= 0;
 	freq				= 0;
 	time				= 0;
